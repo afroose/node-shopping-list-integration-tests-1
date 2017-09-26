@@ -138,3 +138,40 @@ describe('Shopping List', function() {
       });
   });
 });
+
+describe('recipes', function() {
+  before(function() {
+    return runServer();
+  })
+  after(function() {
+    return closeServer();
+  })
+  // test Get Point
+  it('should list reciped on GET', function() {
+    return chai.request(app)
+      .get('/recipes')
+      .then(function(res) {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body.length.should.be.equal(2); // 2 items created in recipe router
+        const expectedKeys = ['id', 'name', 'ingredients'];
+        res.body.forEach(function(valToCheck) {
+          valToCheck.should.be.a('object');
+          valToCheck.should.include.keys(expectedKeys);
+        })
+      })
+  })
+
+  // test POST
+  it('should POST an item', function() {
+    const itemToPost = {name: 'Hachis Parmentier', ingredients: ['minced meat', 'carrots']};
+    return chai.request(app)
+      .post('/recipes')
+      .send(itemToPost)
+      .then(function(res) {
+        res.should.have.status(201);
+      })
+    
+  })
+});
