@@ -171,7 +171,54 @@ describe('recipes', function() {
       .send(itemToPost)
       .then(function(res) {
         res.should.have.status(201);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.include.keys('id','name','ingredients');
+        res.body.id.should.not.be.null;
+        
       })
     
   })
+
+  // Test PUT
+  it('should edit an existing record/recipe - PUT', function() {
+    // Create dummy data for testing
+    const testData = {
+      name: 'New recipe',
+      ingredients: ['chocolate', 'yummy stuff']
+    };
+    // get existing recipe from array
+    // link to data with Chai for first step = get
+    return chai.request(app)
+     .get('/recipes') // return all recipes, pick first one
+     .then(function(res) {
+       //assign id of first record to testData
+       testData.id = res.body[0].id;
+       // send data to array = put (with chai request)
+       return chai.request(app)
+        .put(`/recipes/${testData.id}`)
+        .send(testData)
+     })
+     .then(function(res) {
+        //check ststus
+        res.should.have.status(204);
+     });
+  });
+
+  // test DELETE
+  it('should delete recipes on DELETE request', function() {
+    // chai request
+    return chai.request(app)
+    //promise - get an id
+      .get('/recipes')
+      .then(function(res) {
+        // chai request to delete first d
+        return chai.request(app)
+          .delete(`/recipes/${res.body[0].id}`);
+      })
+      .then(function(res){
+        res.should.have.status(204);
+      })
+  })
+
 });
