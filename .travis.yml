@@ -3,7 +3,7 @@ node_js: node
 deploy:
   provider: heroku
   api_key:
-    secure: wjZJ2iwLe6qNcp79jyQrzxUne2Ux7iEfrcRyUamtjHQfSzh21aTGQ2p2sFI+3VVCvtsIfaYJYS7IoNeYisil6Wy2hPsE9qGN7Nbr0owIcnuTikXzjrvuCbLYIbJ6uKxu4Vx7oXKolXoV5zIL+FjwsgHy2sbvg9S0x5ZifO0uCcOgdukrMkICPMwAujOPlJ5ejXk0ObMy5u+l6/7YwgynlEdlPmR8XIQ+l5j6SZIGgxroquwkX2in1WfEYJeSK5YZYoNH5GBsthmZMn8XThc6iQbFNQVRnAWy2AEr/YuaXpx3krjnQdOWmUWRjXzyIsaN6xX+juh8/tS9ecJ3/ESI5AzbRL7obVlGo2lOanYBE5aRvO+Exdvev9pVM0W54yu+f3ftJvqZgqlBfClXMEUp+yzfbsYnJlRPyYJxiKDJL8OJXXkgJmJ+fhLi55FXR0V32UmrUh7npauQaPR3CD0pvujDykIRs5NxADFPoH+rOLabnBBp/dSGRvg0LR6WrCw8HfRQwoS2g+MbfuSYY5xQh8qUnM8XH41CDRvPvm9cGAY4gVAMauX5pp+PAnWam1bKv2Jst57ynO+0oGNq5OPvQ0bRWcCaNeAj5juSJatJDcqMY1CY6DxejTZe8U4h8pnPQGRxotU3RJGwFyJ4bj7Ie/M85ty4PNMynGepS0seE5Q=
+    secure: b98505ec-78c8-4480-b0f8-fbaa5f1bf062
   app: enigmatic-cliffs-15709
   on:
     repo: afroose/node-shopping-list-integration-tests-1
